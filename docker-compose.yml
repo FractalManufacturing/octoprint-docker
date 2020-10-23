@@ -6,8 +6,8 @@ services:
     restart: unless-stopped
     ports:
       - 80:80
-    # devices:
-    #  - /dev/ttyACM0:/dev/ttyACM0
+    devices:
+      - /dev/ttyUSB0:/dev/ttyACM0
     # - /dev/video0:/dev/video0
     volumes:
      - octoprint1:/octoprint
@@ -21,8 +21,8 @@ services:
     restart: unless-stopped
     ports:
       - 81:80
-    # devices:
-    #  - /dev/ttyACM0:/dev/ttyACM0
+    devices:
+      - /dev/ttyUSB1:/dev/ttyACM0
     # - /dev/video0:/dev/video0
     volumes:
      - octoprint2:/octoprint
