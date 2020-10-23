@@ -1,7 +1,7 @@
 version: '2.4'
 
 services:
-  octoprint:
+  octoprint1:
     image: octoprint/octoprint
     restart: unless-stopped
     ports:
@@ -10,7 +10,22 @@ services:
     #  - /dev/ttyACM0:/dev/ttyACM0
     # - /dev/video0:/dev/video0
     volumes:
-     - octoprint:/octoprint
+     - octoprint1:/octoprint
+    # uncomment the lines below to ensure camera streaming is enabled when
+    # you add a video device
+    #environment:
+    #  - ENABLE_MJPG_STREAMER=true
+  
+  octoprint2:
+    image: octoprint/octoprint
+    restart: unless-stopped
+    ports:
+      - 81:80
+    # devices:
+    #  - /dev/ttyACM0:/dev/ttyACM0
+    # - /dev/video0:/dev/video0
+    volumes:
+     - octoprint2:/octoprint
     # uncomment the lines below to ensure camera streaming is enabled when
     # you add a video device
     #environment:
@@ -36,4 +51,5 @@ services:
   #    - octoprint:/config
 
 volumes:
-  octoprint:
+  octoprint1:
+  octoprint2:
