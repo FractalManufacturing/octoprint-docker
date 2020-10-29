@@ -6,9 +6,7 @@ services:
     restart: unless-stopped
     ports:
       - 80:80
-    devices:
-      - /dev/ttyUSB0:/dev/ttyACM0
-    # - /dev/video0:/dev/video0
+    privileged: True
     volumes:
      - octoprint1:/octoprint
     # uncomment the lines below to ensure camera streaming is enabled when
@@ -21,9 +19,7 @@ services:
     restart: unless-stopped
     ports:
       - 81:80
-    devices:
-      - /dev/ttyUSB1:/dev/ttyACM0
-    # - /dev/video0:/dev/video0
+    privileged: True
     volumes:
      - octoprint2:/octoprint
     # uncomment the lines below to ensure camera streaming is enabled when
